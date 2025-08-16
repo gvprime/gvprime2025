@@ -24,7 +24,9 @@ export default function About() {
             <div className="md:w-2/3">
               <h3 className="text-2xl font-semibold mb-4">AI Innovation Partners</h3>
               <p className="text-gray-300 mb-4">
-                At GV Prime, we combine deep technical expertise with business acumen to deliver transformative AI solutions.
+                At GV Prime, we combine deep technical expertise with business acumen to deliver transformative AI solutions. Our team of data scientists, engineers, and strategists have decades of collective experience implementing AI systems across industries.
+
+We take pride in our collaborative approach, working as an extension of your team to ensure solutions are tailored to your specific challenges and integrated seamlessly with your existing systems.
               </p>
               <p className="text-gray-300">
                 We take pride in our collaborative approach, working as an extension of your team.

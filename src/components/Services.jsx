@@ -1,59 +1,102 @@
-import { BrainCircuit, Bot, Cpu } from 'lucide-react'
+import { 
+  BrainCircuit,
+  Bot,
+  Cpu,
+  Zap,
+  Layers,
+  Network,
+  RefreshCw,
+  Database,
+  Shield,
+  MessageSquare,
+  TrendingUp,
+  GitMerge,
+  Users,
+  Cloud
+} from 'lucide-react';
 
 export default function Services() {
   const services = [
     {
-      icon: <BrainCircuit size={36} className="text-white" />,
       title: "AI Strategy Consulting",
-      description: "Custom AI roadmaps for your business objectives",
-      features: ["Feasibility analysis", "Technology selection", "ROI forecasting"]
+      description: "Develop a tailored AI roadmap aligned with your business objectives and technical capabilities.",
+      icon: BrainCircuit,
+      features: [
+        { icon: Zap, text: "Strategic feasibility analysis" },
+        { icon: Layers, text: "Technology stack selection" },
+        { icon: Network, text: "System architecture design" },
+        { icon: RefreshCw, text: "Process automation planning" }
+      ]
     },
     {
-      icon: <Bot size={36} className="text-white" />,
-      title: "RAG Chatbots",
-      description: "Intelligent chatbots powered by your data",
-      features: ["Enterprise data integration", "Natural conversations", "Continuous learning"]
+      title: "Custom RAG Chatbots",
+      description: "Intelligent chatbots powered by your proprietary data for accurate, context-aware responses.",
+      icon: Bot,
+      features: [
+        { icon: Database, text: "Enterprise data integration" },
+        { icon: Shield, text: "Secure knowledge retrieval" },
+        { icon: MessageSquare, text: "Natural conversation flows" },
+        { icon: TrendingUp, text: "Continuous learning" }
+      ]
     },
     {
-      icon: <Cpu size={36} className="text-white" />,
-      title: "AI Agents",
-      description: "Autonomous agents for business automation",
-      features: ["Workflow automation", "System integration", "24/7 availability"]
+      title: "AI Agent Development",
+      description: "Custom autonomous agents that automate complex tasks and decision-making processes.",
+      icon: Cpu,
+      features: [
+        { icon: RefreshCw, text: "Workflow automation" },
+        { icon: GitMerge, text: "System integration" },
+        { icon: Users, text: "Customer engagement" },
+        { icon: Cloud, text: "Scalable deployment" }
+      ]
     }
-  ]
+  ];
 
   return (
-    <section id="services" className="py-20 bg-slate-900">
+    <section id="services" className="py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-white to-cyan-400 bg-clip-text text-transparent">
             Our AI Services
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Comprehensive solutions for your business challenges
+            Comprehensive AI solutions designed to solve your business challenges
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {services.map((service, index) => (
-            <div key={index} className="bg-slate-800/50 border border-slate-700 rounded-xl p-6 hover:border-blue-500 transition-all">
-              <div className="w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center mx-auto mb-6">
-                {service.icon}
+            <div 
+              key={index}
+              className="bg-[rgba(30,41,59,0.6)] rounded-xl p-6 border border-[rgba(100,116,139,0.2)] hover:border-blue-400/40 transition-colors hover:translate-y-[-8px]"
+            >
+              <div className="bg-gradient-to-br from-blue-600 to-blue-800 w-20 h-20 rounded-xl flex items-center justify-center mx-auto mb-6">
+                <service.icon className="w-9 h-9 text-white" />
               </div>
               <h3 className="text-xl font-bold text-center mb-3">{service.title}</h3>
-              <p className="text-gray-300 text-center mb-6">{service.description}</p>
-              <ul className="space-y-2">
-                {service.features.map((feature, i) => (
-                  <li key={i} className="flex items-start">
-                    <span className="text-blue-400 mr-2">✓</span>
-                    <span className="text-gray-300">{feature}</span>
-                  </li>
+              <p className="text-center text-gray-300 mb-6">{service.description}</p>
+              
+              <div className="mb-6 space-y-3">
+                {service.features.map((feature, idx) => (
+                  <div key={idx} className="flex items-start">
+                    <div className="bg-blue-900/10 rounded-lg p-1.5 mr-3 flex-shrink-0">
+                      <feature.icon className="w-4 h-4 text-blue-400" />
+                    </div>
+                    <span className="text-gray-300 text-sm">{feature.text}</span>
+                  </div>
                 ))}
-              </ul>
+              </div>
+              
+              <a 
+                href="#contact" 
+                className="block text-center text-blue-400 hover:text-blue-300 text-sm font-medium"
+              >
+                Learn More
+              </a>
             </div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
