@@ -9,24 +9,21 @@ import Footer from '../components/Footer';
 
 export default function Home() {
   return (
-    <div className="bg-[#020617] text-[#e2e8f0]">
+    <div className="bg-darker-bg text-text-lighter min-h-screen flex flex-col">
       <Header />
       
-      <main>
+      <main className="flex-grow">
         <Hero />
-        
-        <Services />
-        
-        <FAQ />
-        
-        <Journey />
-        
-        <About />
-        
-        <Contact />
+        <div className="space-y-20 lg:space-y-32 py-20 container mx-auto px-4">
+          <Services />
+          <Journey />
+          <About />
+          <FAQ />
+          <Contact />
+        </div>
       </main>
       
-      
+
     </div>
   );
 }
