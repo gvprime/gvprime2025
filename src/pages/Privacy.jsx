@@ -95,8 +95,7 @@ export default function Privacy() {
           </div>
         </div>
       </main>
-      
-      <Footer />
+
     </div>
   );
 }

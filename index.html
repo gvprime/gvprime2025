@@ -2,42 +2,48 @@
 <html lang="en">
   <head>
     <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/favicon-32x32.png" type="image/png">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
-  <!-- Web Manifest -->
-  <link rel="manifest" href="/site.webmanifest">
-  
-  <!-- Theme Color -->
-  <meta name="theme-color" content="#020617">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon-32x32.png" type="image/png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <!-- Web Manifest -->
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Theme Color (consolidated to one declaration) -->
+    <meta name="theme-color" content="#0f172a">
+    
     <meta charset="UTF-8" />
     <title>GV Prime - AI Solutions</title>
-    <!-- Critical viewport tag for mobile responsiveness -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <!-- Viewport (improved for accessibility) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- PWA Capability Tags (fixed deprecation) -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes"> <!-- Keep for legacy iOS -->
+    
+    <!-- iOS Status Bar -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
     <!-- Preconnect for better performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Favicon (optional) -->
+    
+    <!-- Modern Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <!-- iOS specific meta tags -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <!-- Theme color for mobile browsers -->
-    <meta name="theme-color" content="#0f172a">
   </head>
+  
   <body class="min-h-screen bg-slate-50">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
     
-    <!-- Optional: Load critical CSS first -->
+    <!-- Critical CSS -->
     <style>
       /* Prevent layout shift */
       html {
         scroll-behavior: smooth;
       }
-      /* Mobile tap highlight color */
+      /* Mobile tap highlight */
       body {
         -webkit-tap-highlight-color: transparent;
       }
