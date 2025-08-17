@@ -1,0 +1,83 @@
+/* ================= IMPORTS ================= */
+/* MUST be at very top of file */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+/* ================= TOUCH TARGETS ================= */
+/* Consolidated touch target rules (no duplicates) */
+a, button, .nav-link, [role="button"], .min-touch-target {
+  min-height: 48px;
+  min-width: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Header elements */
+.header-nav a, 
+.header-nav button,
+.mobile-menu a,
+.mobile-menu button {
+  padding: 12px 16px !important;
+}
+
+/* Form elements */
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+  min-height: 48px;
+  padding: 12px 16px !important;
+}
+
+/* Buttons */
+.btn, .btn-primary {
+  padding: 12px 24px !important;
+}
+
+/* Mobile menu */
+.mobile-menu-toggle {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Logo adjustment */
+header a[href="/"] {
+  padding: 7px 17px;
+}
+
+/* ================= MEDIA QUERIES ================= */
+@media (max-width: 767px) {
+  .mobile-menu a, 
+  .mobile-menu button,
+  .mobile-menu > div > a,
+  .mobile-menu > div > button {
+    width: 100%;
+    justify-content: space-between;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+  
+  .mobile-dropdown > button {
+    width: 100%;
+  }
+  
+  .mobile-menu .space-y-1 > * + * {
+    margin-top: 8px;
+  }
+}
+
+/* ================= ACCESSIBILITY ================= */
+button:active, a:active {
+  transform: scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+button:focus-visible, 
+a:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
