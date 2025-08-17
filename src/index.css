@@ -10,6 +10,11 @@ body {
   @apply bg-darker-bg text-text-light font-inter;
 }
 
+
+.animate-node, .animate-path, .animate-binary {
+  will-change: transform, opacity;
+}
+
 /* Custom animations */
 @keyframes pulse {
   0%, 100% { opacity: 0.8; }

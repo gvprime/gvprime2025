@@ -1,37 +1,57 @@
 import { ArrowRight } from 'lucide-react';
-import { useState } from 'react';
-import './Hero.css'; // Import custom CSS for animations
+import { useState, useEffect } from 'react';
 
 export default function Hero() {
   const [isHovered, setIsHovered] = useState(false);
+  const [paths, setPaths] = useState([]);
+
+  useEffect(() => {
+    // Generate neural network paths
+    const generatedPaths = [
+      {
+        d: 'M15,20 Q50,50 85,30',
+        delay: 0,
+        color: '#3b82f6'
+      },
+      {
+        d: 'M25,40 Q50,60 75,80',
+        delay: 0.5,
+        color: '#3b82f6'
+      },
+      // Add more paths for a richer network
+      {
+        d: 'M10,30 Q40,70 90,40',
+        delay: 0.7,
+        color: '#6366f1'
+      },
+      {
+        d: 'M30,20 Q60,30 80,70',
+        delay: 0.3,
+        color: '#6366f1'
+      }
+    ];
+    setPaths(generatedPaths);
+  }, []);
 
   return (
     <section className="relative overflow-hidden min-h-[90vh] flex items-center justify-center bg-gradient-to-b from-[#020617] to-[#0f172a]">
       {/* Neural Network Animation */}
       <div className="absolute inset-0 overflow-hidden">
         <svg className="absolute inset-0 h-full w-full opacity-80">
-          <path
-            stroke="#3b82f6"
-            strokeWidth="1.5"
-            fill="none"
-            d="M15,20 Q50,50 85,30"
-            style={{
-              strokeDasharray: 1000,
-              strokeDashoffset: 1000,
-              animation: 'draw 3s ease-out forwards'
-            }}
-          />
-          <path
-            stroke="#3b82f6"
-            strokeWidth="1.5"
-            fill="none"
-            d="M25,40 Q50,60 75,80"
-            style={{
-              strokeDasharray: 1000,
-              strokeDashoffset: 1000,
-              animation: 'draw 3s ease-out forwards 0.5s'
-            }}
-          />
+          {paths.map((path, index) => (
+            <path
+              key={`path-${index}`}
+              stroke={path.color}
+              strokeWidth="1.5"
+              fill="none"
+              d={path.d}
+              strokeDasharray="1000"
+              strokeDashoffset="1000"
+              style={{
+                animation: `draw 2.5s ease-out forwards ${path.delay}s`
+              }}
+            />
+          ))}
         </svg>
 
         {/* Animated Nodes */}
@@ -40,7 +60,12 @@ export default function Hero() {
           { x: 25, y: 40, type: 'hidden' },
           { x: 50, y: 50, type: 'hidden' },
           { x: 75, y: 80, type: 'hidden' },
-          { x: 85, y: 30, type: 'output' }
+          { x: 85, y: 30, type: 'output' },
+          // Additional nodes
+          { x: 10, y: 30, type: 'input' },
+          { x: 30, y: 20, type: 'hidden' },
+          { x: 90, y: 40, type: 'output' },
+          { x: 80, y: 70, type: 'output' }
         ].map((node, index) => (
           <div 
             key={`node-${index}`}
@@ -48,15 +73,16 @@ export default function Hero() {
               absolute w-3 h-3 rounded-full
               ${node.type === 'input' ? 'bg-cyan-400' : 
                 node.type === 'output' ? 'bg-emerald-400' : 
-                'bg-blue-500'}
+                'bg-indigo-500'}
+              animate-pulse
             `}
             style={{
               top: `${node.y}%`,
               left: `${node.x}%`,
               transform: 'translate(-50%, -50%)',
-              animation: 'pulse-glow 2s infinite',
-              animationDelay: `${index * 0.2}s`,
-              filter: 'drop-shadow(0 0 8px currentColor)'
+              animationDelay: `${index * 0.15}s`,
+              filter: 'drop-shadow(0 0 8px currentColor)',
+              animationDuration: '2s'
             }}
           />
         ))}
@@ -64,14 +90,14 @@ export default function Hero() {
 
       {/* Binary Animation */}
       <div className="absolute inset-0 overflow-hidden opacity-20">
-        {[5, 25, 45, 65, 85].map((xPos, index) => (
+        {[5, 15, 25, 35, 45, 55, 65, 75, 85, 95].map((xPos, index) => (
           <div 
             key={`binary-${index}`}
             className="absolute top-0 h-[200%] w-px bg-gradient-to-b from-transparent via-blue-400/70 to-transparent"
             style={{
               left: `${xPos}%`,
-              animation: `binaryFall ${15 + index * 5}s linear infinite`,
-              animationDelay: `${index}s`
+              animation: `binaryFall ${10 + Math.random() * 10}s linear infinite`,
+              animationDelay: `${Math.random() * 5}s`
             }}
           />
         ))}
@@ -95,6 +121,24 @@ export default function Hero() {
           <ArrowRight className={`ml-2 w-5 h-5 transition-transform ${isHovered ? 'translate-x-1' : ''} group-hover:translate-x-1`} />
         </a>
       </div>
+
+      {/* Animation styles */}
+      <style jsx global>{`
+        @keyframes draw {
+          to {
+            stroke-dashoffset: 0;
+          }
+        }
+        
+        @keyframes binaryFall {
+          0% {
+            transform: translateY(-100%);
+          }
+          100% {
+            transform: translateY(100vh);
+          }
+        }
+      `}</style>
     </section>
   );
 }
