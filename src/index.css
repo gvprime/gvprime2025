@@ -5,6 +5,25 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    @apply h-full scroll-smooth;
+  }
+  body {
+    @apply h-full antialiased bg-slate-900 text-gray-100;
+  }
+  #root {
+    @apply h-full flex flex-col;
+  }
+  /* Smooth transitions for route changes */
+  .page-transition {
+    animation: fadeIn 300ms ease-out;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
 
 body {
   @apply bg-darker-bg text-text-light font-inter;
