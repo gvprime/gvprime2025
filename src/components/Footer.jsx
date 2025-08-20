@@ -15,10 +15,10 @@ export default function Footer() {
           <div>
             <h3 className="text-white text-lg font-semibold mb-4">Company</h3>
             <ul className="space-y-3">
-              <li><a href="/about" className="hover:text-white transition-colors">About Us</a></li>
-              <li><a href="/services" className="hover:text-white transition-colors">Services</a></li>
-              <li><a href="/careers" className="hover:text-white transition-colors">Careers</a></li>
-              <li><a href="/contact" className="hover:text-white transition-colors">Contact</a></li>
+              <li><a href="#about" className="hover:text-white transition-colors">About Us</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">Services</a></li>
+              <li><a href="#careers" className="hover:text-white transition-colors">Careers</a></li>
+              <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
             </ul>
           </div>
 
@@ -26,10 +26,10 @@ export default function Footer() {
           <div>
             <h3 className="text-white text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-3">
-              <li><a href="/ai-solutions" className="hover:text-white transition-colors">AI Solutions</a></li>
-              <li><a href="/data-analytics" className="hover:text-white transition-colors">Data Analytics</a></li>
+              <li><a href="#ai-consulting" className="hover:text-white transition-colors">AI Solutions</a></li>
+              <li><a href="/#journey" className="hover:text-white transition-colors">Data Analytics</a></li>
               <li><a href="/cloud-services" className="hover:text-white transition-colors">Cloud Services</a></li>
-              <li><a href="/consulting" className="hover:text-white transition-colors">Consulting</a></li>
+              <li><a href="#ai-consulting" className="hover:text-white transition-colors">Consulting</a></li>
             </ul>
           </div>
 
